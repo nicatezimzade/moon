@@ -1,0 +1,326 @@
+﻿@model HomeViewModel
+
+<div class="jumbotron d-flex align-items-center" style="background-image: @Model.hero.HeroImgSrc">
+    <div class="container text-center">
+        <h1 class="display-2 mb-4">@Model.hero.HeroTitle</h1>
+        <p>@Model.hero.HeroText</p>
+    </div>
+</div>
+<!-- Who We Are Section -->
+<section id="gtco-who-we-are" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <div class="title-wrap">
+                <h2 class="section-title">The easiest way <br>to build<b> websites online</b></h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a <br> pharetra augue. Donec id elit non mi porta gravida at eget metus.</p>
+            </div>
+
+            <div class="row text-center">
+                @foreach (Banner item in Model.banners)
+                {
+                    <div class="col-md-4 col-sm-6 ">
+                        <img class="rounded-circle" src="@item.ImgSrc" width="140" height="140">
+                        <h5 class="mb-4">@item.Title</h5>
+                        <p>@item.Text</p>
+                        <p><a class="btn btn-link" href="#" role="button">@item.ButtonText</a></p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Of Who We Are Section -->
+<!-- Counter Section -->
+<section id="gtco-counter" class="overlay bg-fixed">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                @foreach (Counter item in Model.counters)
+                {
+                    <div class="col-md-3 col-sm-6 counter-item">
+                        <i class="lnr @item.Icon"></i>
+                        <span class="number" data-from="@item.StartNum" data-to="@item.EndNum" data-refresh-interval="@item.Interval">@item.InnerNum</span>
+                        <h4>@item.Title</h4>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Of Counter Section -->
+<!-- Features Section-->
+<section id="gtco-features" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+
+            <div class="title-wrap">
+                <h2 class="section-title">
+                    All the  <span>need </span>that you <span>want</span>
+                </h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 features-holder">
+                    <div class="row">
+                        @foreach (Feature item in Model.features)
+                        {
+                            <div class="col-md-4 col-sm-6 feature-item item mb-3 mb-3 text-center">
+                                <div class="my-4">
+                                    <i class="lnr @item.FeatIcon fs-40"></i>
+                                </div>
+                                <h4>@item.FeatTitle</h4>
+                                <p>@item.FeatText</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Of Features Section-->
+<!-- Featurettes Section -->
+<section id="gtco-section-featurettes" class="featurettes bg-white">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <div class="title-wrap">
+                        <h2 class="section-title">
+                            <b>Brand new</b> social media,<br> different than any other one
+                        </h2>
+                        <p class="section-sub-title">
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a <br>pharetra augue. Donec id elit non mi porta gravida at eget metus.
+                        </p>
+                    </div>
+
+                    @for (int i = 0; i < Model.featwrappers.Count(); i++)
+                    {
+                        <div class="featurettes-wrap text-left mb-4">
+                            <div class="row featurettes-item">
+                                @if (i == 0)
+                                {
+                                    <div class="col-md-4 offset-md-2 col-sm-6">
+                                        <div class="my-5">
+                                            <span class="lnr @Model.featwrappers[i].FeatWrapperIcon fs-40 color-primary"></span>
+                                        </div>
+                                        <h4 class="mb-4">@Model.featwrappers[i].FeatWrapperTitle</h4>
+                                        <p>@Model.featwrappers[i].FeatWrapperText</p>
+                                    </div>
+
+                                    <div class="col-md-4 offset-md-right-2 col-sm-6">
+                                        <img class="my-5" src="@Model.featwrappers[i].FeatWrapperImg">
+                                    </div>
+                                }
+                                @if (i == 1)
+                                {
+                                    <div class="col-md-4 offset-md-2 col-sm-6">
+                                        <img class="my-4" src="@Model.featwrappers[i].FeatWrapperImg">
+                                    </div>
+
+                                    <div class="col-md-4 offset-md-right-2 col-sm-6 mb-5">
+                                        <div class="my-4">
+                                            <span class="lnr @Model.featwrappers[i].FeatWrapperIcon fs-40 color-primary"></span>
+                                        </div>
+                                        <h4 class="mb-4">@Model.featwrappers[i].FeatWrapperTitle</h4>
+                                        <p>@Model.featwrappers[i].FeatWrapperText</p>
+                                    </div>
+                                }
+                                @if (i == 2)
+                                {
+                                    <div class="col-md-4 offset-md-2 col-sm-6 offset-sm-0">
+                                        <h4 class="mb-4">@Model.featwrappers[i].FeatWrapperTitle</h4>
+                                        <p>@Model.featwrappers[i].FeatWrapperText</p>
+                                    </div>
+
+                                    <div class="col-md-4 offset-md-right-2 col-sm-6 text-center">
+                                        <a href="#0"><img class="btn-img my-4" src="@Model.featwrappers[i].FeatWrapperIcon"></a>
+                                        <a href="#0"><img class="btn-img" src="@Model.featwrappers[i].FeatWrapperImg"></a>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End Of Featurettes Section -->
+<!-- Blog Section -->
+<section id="gtco-blog" class="bg-grey">
+    <div class="container">
+        <div class="section-content">
+
+            <div class="title-wrap mb-5">
+                <h2 class="section-title">Latest <b>news</b></h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 blog-holder">
+                    <div class="row">
+                        @foreach (Blog item in Model.blogs)
+                        {
+                            <div class="col-md-4 blog-item-wrapper">
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <a href="single.html"><img src="@item.BlogImg" alt=""></a>
+                                    </div>
+                                    <div class="blog-text">
+                                        <div class="blog-tag">
+                                            <a href="#"><h6><small>@item.BlogTag</small></h6></a>
+                                        </div>
+                                        <div class="blog-title">
+                                            <a href="single.html"><h4>@item.BlogTitle</h4></a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <p class="blog-date">@item.BlogDate</p> /
+                                            <p class="blog-comment"><a href="">@item.BlogComment</a></p>
+                                        </div>
+                                        <div class="blog-desc">
+                                            <p>@item.BlogText</p>
+                                        </div>
+                                        <div class="blog-author">
+                                            <p>by @item.BlogAuthor</p>
+                                        </div>
+                                        <div class="blog-share-wrapper">
+                                            <a class="blog-share" href="@string.Concat($"{"www." + item.BlogShare1}", ".com")">
+                                                <i class="fab fa-@item.BlogShare1-square"></i>
+                                            </a>
+                                            <a class="blog-share" href="@string.Concat($"{"www."+item.BlogShare2}", ".com")">
+                                                <i class="fab fa-@item.BlogShare2-square"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Blog Section -->
+<!--Portfolio Section-->
+<section id="gtco-portfolio" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <div class="title-wrap">
+                <h2 class="section-title">Our <b>Awesome</b> Works</h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 portfolio-holder">
+
+                    <div class="filter-button-group btn-filter d-flex justify-content-center">
+                        <a tabindex="0" class="is-checked" data-filter="*">Show All</a>
+                        @foreach (Category item in Model.categories)
+                        {
+                            <a tabindex="0" data-filter=".@item.Name">@item.Name</a>
+                        }
+                    </div>
+
+                    <div class="grid-portfolio">
+                        <div class="grid-sizer"></div>
+                        <div class="gutter-sizer"></div>
+
+                        @foreach (Project item in Model.projects)
+                        {
+                            <div class="grid-item @item.Category.Name">
+                                <div class="grid-item-wrapper">
+                                    <img src="@item.Image" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+                                            <a class="img-pop" data-rel="lightcase" href="@item.Image" title="@item.Subtitle">
+                                                <span class="lnr @item.ProjectIcon1"></span>
+                                            </a>
+                                            <a class="ext-link" href="https://unsplash.com/" target="_blank">
+                                                <span class="lnr @item.ProjectIcon2"></span>
+                                            </a>
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>@item.Title</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End of Portfolio Section-->
+<!-- PRICING Section-->
+<section id="gtco-pricing" class="bg-grey">
+    <div class="container">
+        <div class="section-content">
+            <!-- Section Title -->
+            <div class="title-wrap">
+                <h2 class="section-title">Pricing</h2>
+                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p>
+            </div>
+            <!-- End of Section Title -->
+            <div class="card-deck mb-3 text-center">
+                @foreach (Pricing item in Model.pricings)
+                {
+                    <div class="price-box card mb-4 box-shadow">
+                        <div class="card-header p-4">
+                            <h6 class="mb-0 text-@item.PColor font-weight-bold">@item.PTag</h6>
+                            <h2 class="display-4 p-2 mb-0 font-weight-bold">@item.PCapacity<small class="align-top">@item.PCapType</small></h2>
+                            <p class="mb-0">@item.PTitle</p>
+                        </div>
+                        <div class="card-body p-4">
+                            <ul class="price-box-list list-unstyled mt-3 mb-4">
+                                <li>@item.PFeat1</li>
+                                <li>@item.PFeat2</li>
+                                <li>@item.PFeat3</li>
+                                <li>@item.PFeat4</li>
+                                <li>@item.PFeat5</li>
+                            </ul>
+                            <h2 class="card-title pricing-card-title mb-0 font-weight-bold">@item.PCost</h2>
+                            <p>@item.PDate</p>
+                            <a href="#" class="btn btn-block btn-secondary btn-@item.PColor mt-4">@item.PBtnText</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /END PRICING -->
+<!-- Client Section -->
+<section id="gtco-client" class="bg-white">
+    <div class="container">
+        <div class="section-content">
+            <!-- Section Title -->
+            <div class="title-wrap">
+                <h2 class="section-title">
+                    Who love to <b> work</b> with us
+                </h2>
+            </div>
+            <!-- End of Section Title -->
+            <div class="row ">
+                @foreach (Client item in Model.clients)
+                {
+                    <div class="col-md-2">
+                        <div class="client-item">
+                            <img class="img-responsive" src="@item.ClientLogo">
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Of Client Section -->
